@@ -1,0 +1,17 @@
+/* Include Foundation! */
+
+@import '../node_modules/foundation-sites/scss/foundation';
+
+@include foundation-global-styles;
+@include foundation-grid;
+
+body {
+    background-color: yellow;
+}
+
+button {
+    background-color: darken(yellow, 10);
+    border: 1px solid slategray;
+    width: 75px;
+
+}
