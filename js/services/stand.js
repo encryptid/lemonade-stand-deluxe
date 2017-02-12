@@ -25,6 +25,7 @@ module.exports = {
                         angular.copy(response.data.ingredients, ingredients);
                         angular.copy(response.data.business, businessInfo);
                         angular.copy(response.data, general);
+                        //angular.copy(response.data.business.id, standId)
                         console.log(ingredients);
                         console.log(businessInfo);
 
@@ -39,17 +40,40 @@ module.exports = {
             },
             getAll() {
                 return general;
-            }
-
+            },
             // getStand() {
-            //     $http.get('https://blooming-hamlet70507.herokuapp.com/stand/', {
-            //     standId
-            //     }).then(function (response) {
-            //         console.log(response);
-            //         info = response.data;
-            //         console.log(info + ' is coming thru!');
-            //     });
-            // },
+            //         $http.get('https://blooming-hamlet-70507.herokuapp.com/stand/' + standId
+            //         ).then(function (response) {
+            //             console.log(response);
+            //             angular.copy(response.data.ingredients, ingredients);
+            //             angular.copy(response.data.business, businessInfo);
+            //             angular.copy(response.data, general);
+            //             console.log(ingredients);
+            //             console.log(businessInfo);
+
+            //         });
+            //     },
+
+            purchase(name, amount) {
+                console.log(`purchase working!`);
+                $http.post('https://blooming-hamlet-70507.herokuapp.com/stand/update?id=' + standId, {
+                    property: "ingredient." + name,
+                    add: amount,
+                }).then(function (response) {
+                    console.log(response);
+                }).then(function getStand() {
+                    $http.get('https://blooming-hamlet-70507.herokuapp.com/stand/' + standId
+                    ).then(function (response) {
+                        console.log(response);
+                        angular.copy(response.data.ingredients, ingredients);
+                        angular.copy(response.data.business, businessInfo);
+                        angular.copy(response.data, general);
+                        console.log(ingredients);
+                        console.log(businessInfo);
+
+                    });
+                })
+            }
         };
     }
 }

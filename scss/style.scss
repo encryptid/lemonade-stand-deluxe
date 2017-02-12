@@ -7,6 +7,53 @@
 
 body {
     background-color: yellow;
+
+    .topbar {
+        @include grid-row();
+    
+        ul {
+            //border: 1px solid darken(yellow, 5);
+
+                li {
+                    @include grid-column(6);
+                    border: 2px solid darken(yellow, 5);
+                    border-radius: 5px;
+                }
+            }
+    }
+    
+section {
+    
+    .ingredients {
+        @include grid-row();
+
+        li {
+            @include grid-column(3);
+                text-align: center;
+                border: 1px solid darken(yellow, 5);
+                border-radius: 5px;
+
+            button, input {
+                @include grid-column(6);
+                }
+            // button {
+            //     size: 75px;
+            //     }
+            // input {
+            //     size: 75px;
+            //     }
+            }
+        }
+    #submit {
+        margin-left: 50%;
+        margin-right: 50%;
+        text-align: center;
+            }
+    }   
+}
+
+ul {
+    list-style: none;
 }
 
 button {

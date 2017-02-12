@@ -18,8 +18,14 @@
     <input type="text" ng-model="newStand" placeholder="Enter stand name">
     <button ng-click="submitName()">Go!</button>
     </section>
+    <section>
+        <ul>
+            <li><a ui-sref="game-page">Main Page</a></li>
+            <li><a ui-sref="hi-score">Hi Score</a></li>
+        </ul>
+        <ui-view></ui-view>
 
-    
+        
 </body>
 
 </html>

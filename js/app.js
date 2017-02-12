@@ -10,10 +10,6 @@ const app = angular.module('LemonadeStandApp', ['ui.router']);
 //     app.controller(controllers[i].name, controllers[i].func);
 // }
 
-// app.config(function($stateProvider){
-
-// })
-
 const Stand = require('./services/stand');
 
 // const services = [
@@ -36,6 +32,8 @@ const Stand = require('./services/stand');
 // })
 
 const Submit = require('./controllers/submit');
+const Game = require('./controllers/game');
+const Details = require('./components/gameDetails');
 // const controllers = [
 //     require('./controllers/submit'),
 // ]
@@ -43,8 +41,19 @@ const Submit = require('./controllers/submit');
 // for (let i = 0; i < controllers.length; i++) {
 //     app.controller(controllers[i].name, controllers[i].func);
 // };
-app.controller(Submit.name, Submit.func);
+//app.component()
+app.config(function($stateProvider) {
+    $stateProvider.state({
+        name: 'game-page',
+        url: '/main',
+        component: 'gameDetails',
+    })
+})
 
+app.controller(Submit.name, Submit.func);
+app.controller(Game.name, Game.func);
+
+app.component(Details.name, Details.object);
 
 //app.controller(Resources.name, Resources.func);
 
